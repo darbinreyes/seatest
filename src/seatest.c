@@ -10,7 +10,7 @@ int seatest_is_string_equal_i(const char* s1, const char* s2)
 
 #else
 #include <strings.h>
-unsigned int GetTickCount() { return 0;}
+unsigned int GetTickCount(void) { return 0;}
 void _getch( void ) { }
 int seatest_is_string_equal_i(const char* s1, const char* s2)
 {
@@ -68,7 +68,7 @@ void suite_teardown(seatest_void_void teardown)
 	seatest_suite_teardown_func = teardown;
 }
 
-int seatest_is_display_only()
+int seatest_is_display_only(void)
 {
 	return seatest_display_only;
 }
@@ -299,7 +299,7 @@ void seatest_test_fixture_start(char* filepath)
 	seatest_fixture_setup = 0;
 }
 
-void seatest_test_fixture_end()
+void seatest_test_fixture_end(void)
 {
 	char s[SEATEST_PRINT_BUFFER_SIZE];
 	sprintf(s, "%d run  %d failed", sea_tests_run-seatest_fixture_tests_run, sea_tests_failed-seatest_fixture_tests_failed);
